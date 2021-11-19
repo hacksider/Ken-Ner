@@ -1,0 +1,35 @@
+{
+  "lang":"en",
+  "name":"model",
+  "version":"0.0.0",
+  "spacy_version":">=2.3.1",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_git_version":"554291558",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":"spacy_pretrained_vectors"
+  },
+  "pipeline":[
+    "ner"
+  ],
+  "factories":{
+    "ner":"ner"
+  },
+  "labels":{
+    "ner":[
+      "Contract Situs State",
+      "If possible pull definition of Total weekly earnings",
+      "Partial Return to Work",
+      "Policy WP",
+      "Pre",
+      "STD Policy Effective Date",
+      "Short Term Disability Contributory or Non"
+    ]
+  }
+}
