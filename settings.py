@@ -10,5 +10,5 @@ SERVER_HOST = "0.0.0.0"
 SERVER_PORT = 5000
 LOCAL = True
 
-JSON_FILE_PATH = "old.json"
-EPOCHS = 200
+JSON_FILE_PATH = "fixed.json"
+EPOCHS = 100
