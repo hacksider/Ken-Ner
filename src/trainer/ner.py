@@ -22,10 +22,21 @@ class NERTrainer:
         train_data = []
         for t_data in init_train_data:
             text = t_data["text"]
-            for t_lbl in t_data["label"]:
-                train_data.append((text, {'entities': [(int(t_lbl["start"]) - 1, int(t_lbl["end"]) - 1,
-                                                        t_lbl["labels"][0])]}))
-
+            train_data.extend(
+                (
+                    text,
+                    {
+                        'entities': [
+                            (
+                                int(t_lbl["start"]) - 1,
+                                int(t_lbl["end"]) - 1,
+                                t_lbl["labels"][0],
+                            )
+                        ]
+                    },
+                )
+                for t_lbl in t_data["label"]
+            )
         for _, annotations in train_data:
             for ent in annotations.get('entities'):
                 self.ner.add_label(ent[2])

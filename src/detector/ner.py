@@ -23,9 +23,11 @@ class NERDetector:
                     beams = self.model.entity.beam_parse([res], beam_width=16, beam_density=0.0001)
                     for beam in beams:
                         for score, ents in self.model.entity.moves.get_beam_parses(beam):
-                            for start, end, label in ents:
-                                if start == ent.start:
-                                    result.append({ent.label_: ent.text, "confidence": score})
+                            result.extend(
+                                {ent.label_: ent.text, "confidence": score}
+                                for start, end, label in ents
+                                if start == ent.start
+                            )
                             break
 
         return result
