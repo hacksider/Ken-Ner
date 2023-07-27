@@ -28,9 +28,8 @@ def get_index_from_file_path(path):
 def load_text(filename):
 
     if os.path.isfile(filename):
-        file = open(filename, 'r')
-        text = file.read()
-        file.close()
+        with open(filename, 'r') as file:
+            text = file.read()
     else:
         text = ''
 
@@ -39,10 +38,8 @@ def load_text(filename):
 
 def save_file(content, filename, method):
 
-    file = open(filename, method)
-    file.write(content)
-    file.close()
-
+    with open(filename, method) as file:
+        file.write(content)
     return
 
 
